@@ -7,6 +7,7 @@ spread_type = input("Choose a spread...\nPress 1 for a 3-card past/present/futur
 
 try:
     spread_type = int(spread_type)
+    assert spread_type == 1 or spread_type == 2
 except:
     print("Please enter a valid choice")
     exit()
@@ -23,7 +24,7 @@ major_arcana = ["The Fool", "The Magician", "The High Priestess", "The Empress",
 
 
 #Function to draw a random card:
-random_controller = {97}
+random_controller = {97}                             #We can't start with an empty set because {} is a dictionary, so we add an arbitrary number outside the possible range to initialize it as a set.
 def draw_card(card_type):
     draw = input(f"Press any key to shuffle the deck and draw a {card_type} card: ")
     card_is_unique = False                           #We need to check that cards are unique. No such thing as 9 Hermits! We start assuming it is not so that we ask at least once
